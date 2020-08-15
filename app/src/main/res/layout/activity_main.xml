@@ -15,7 +15,7 @@
         android:background="?colorPrimary"
         android:theme="@style/ToolbarTheme" />
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/nav_host_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
