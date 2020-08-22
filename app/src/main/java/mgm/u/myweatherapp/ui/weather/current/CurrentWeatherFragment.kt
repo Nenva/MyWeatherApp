@@ -2,28 +2,21 @@ package mgm.u.myweatherapp.ui.weather.current
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.current_weather_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import mgm.u.myweatherapp.R
-import mgm.u.myweatherapp.data.network.ApixuWeatherApiService
-import mgm.u.myweatherapp.data.network.ConectivityInterceptorImpl
-import mgm.u.myweatherapp.data.network.WeatherNetworkDataSourceImpl
 import mgm.u.myweatherapp.internal.glide.GlideApp
-import mgm.u.myweatherapp.ui.base.ScopeFragment
-import org.kodein.di.Kodein
+import mgm.u.myweatherapp.ui.base.ScopedFragment
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
 
-class CurrentWeatherFragment : ScopeFragment(), KodeinAware {
+class CurrentWeatherFragment : ScopedFragment(), KodeinAware {
 
     override val kodein by closestKodein()
     private val viewModelFactory: CurrentWeatherViewModelFactory by instance()

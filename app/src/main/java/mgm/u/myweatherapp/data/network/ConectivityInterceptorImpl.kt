@@ -17,7 +17,6 @@ class ConectivityInterceptorImpl(
         if (!isOnline())
             throw NoConnectivityException()
         return chain.proceed(chain.request())
-
     }
 
     private fun isOnline(): Boolean {
