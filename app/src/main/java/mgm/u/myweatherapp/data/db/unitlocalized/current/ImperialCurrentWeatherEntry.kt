@@ -1,4 +1,4 @@
-package mgm.u.myweatherapp.data.db.unitlocalized
+package mgm.u.myweatherapp.data.db.unitlocalized.current
 
 import androidx.room.ColumnInfo
 

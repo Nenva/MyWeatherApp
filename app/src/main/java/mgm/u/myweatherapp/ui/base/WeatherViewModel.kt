@@ -1,18 +1,21 @@
-package mgm.u.myweatherapp.ui.weather.current
+package mgm.u.myweatherapp.ui.base
 
 import androidx.lifecycle.ViewModel
 import mgm.u.myweatherapp.data.provider.UnitProvider
 import mgm.u.myweatherapp.data.repository.ForecastRepository
 import mgm.u.myweatherapp.internal.UnitSystem
 import mgm.u.myweatherapp.internal.lazyDeferred
-import mgm.u.myweatherapp.ui.base.WeatherViewModel
 
-class CurrentWeatherViewModel(
+open class WeatherViewModel(
     private val forecastRepository: ForecastRepository,
     unitProvider: UnitProvider
-) : WeatherViewModel(forecastRepository, unitProvider) {
+) : ViewModel() {
+    private val unitSystem = unitProvider.getUnitSystem()
 
-    val weather by lazyDeferred {
-        forecastRepository.getCurrentWeather(super.isMetricUnit)
+    val isMetricUnit: Boolean get() = unitSystem == UnitSystem.METRIC
+
+    val weatherLocation by lazyDeferred {
+        forecastRepository.getWeatherLocation()
     }
+
 }

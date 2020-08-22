@@ -26,10 +26,10 @@ data class WeatherLocation(
     @PrimaryKey(autoGenerate = false)
     var id: Int = WEATHER_LOCATION_ID
 
-    val zonedDataTime: ZonedDateTime
+    val zonedDataTime: org.threeten.bp.ZonedDateTime
         get() {
-            val instant = java.time.Instant.ofEpochSecond(localtimeEpoch)
-            val zoneId = java.time.ZoneId.of(tzId)
-            return ZonedDateTime.ofInstant(instant, zoneId)
+            val instant = Instant.ofEpochSecond(localtimeEpoch)
+            val zoneId = ZoneId.of(tzId)
+            return org.threeten.bp.ZonedDateTime.ofInstant(instant, zoneId)
         }
 }

@@ -1,6 +1,4 @@
 package mgm.u.myweatherapp.data.db.entity
-
-
 import com.google.gson.annotations.SerializedName
 
 data class Condition(

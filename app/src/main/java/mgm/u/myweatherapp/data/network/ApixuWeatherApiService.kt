@@ -3,6 +3,7 @@ package mgm.u.myweatherapp.data.network
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import mgm.u.myweatherapp.data.network.response.CurrentWeatherResponse
+import mgm.u.myweatherapp.data.network.response.FutureWeatherResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -21,6 +22,14 @@ interface ApixuWeatherApiService {
         @Query("lang") languageCode: String = "en"
     ): Deferred<CurrentWeatherResponse>
 
+    //http://api.weatherapi.com/v1/forecast.json?key=7c68e101be9747f0bfc212057201408&q=London&days=7
+    @GET("forecast.json")
+    fun getFutureWeather(
+        @Query("q") location: String,
+        @Query("days") days: Int,
+        @Query("lang") languageCode: String = "en"
+    ) : Deferred<FutureWeatherResponse>
+
     companion object {
         operator fun invoke(
             connectivityInterceptor: ConectivityInterceptor
@@ -29,8 +38,7 @@ interface ApixuWeatherApiService {
                 val url = chain.request()
                     .url()
                     .newBuilder()
-                    .addQueryParameter("key",
-                        API_KEY
+                    .addQueryParameter("key", API_KEY
                     )
                     .build()
                 val request = chain.request()
