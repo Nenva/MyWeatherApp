@@ -1,4 +1,4 @@
-package mgm.u.myweatherapp.data.db.unitlocalized.future
+package mgm.u.myweatherapp.data.db.unitlocalized.future.list
 
 import androidx.room.ColumnInfo
 import org.threeten.bp.LocalDate

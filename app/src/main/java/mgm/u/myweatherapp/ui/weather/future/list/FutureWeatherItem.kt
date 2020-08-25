@@ -4,8 +4,8 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.item_future_weather.*
 import mgm.u.myweatherapp.R
-import mgm.u.myweatherapp.data.db.unitlocalized.future.MetricSimpleFutureWeatherEntry
-import mgm.u.myweatherapp.data.db.unitlocalized.future.UnitSpecificSimpleFutureWeatherEntry
+import mgm.u.myweatherapp.data.db.unitlocalized.future.list.MetricSimpleFutureWeatherEntry
+import mgm.u.myweatherapp.data.db.unitlocalized.future.list.UnitSpecificSimpleFutureWeatherEntry
 import mgm.u.myweatherapp.internal.glide.GlideApp
 import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.FormatStyle
